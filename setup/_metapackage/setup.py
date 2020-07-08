@@ -10,7 +10,9 @@ setuptools.setup(
     install_requires=[
         'odoo13-addon-ddmrp',
         'odoo13-addon-ddmrp_adjustment',
+        'odoo13-addon-ddmrp_coverage_days',
         'odoo13-addon-ddmrp_history',
+        'odoo13-addon-ddmrp_packaging',
     ],
     classifiers=[
         'Programming Language :: Python',
