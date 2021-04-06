@@ -47,7 +47,7 @@ DDMRP_COLOR = {
 class StockBuffer(models.Model):
     _name = "stock.buffer"
     _description = "Stock Buffer"
-    _order = "planning_priority_level asc, net_flow_position asc"
+    _order = "planning_priority_level asc, net_flow_position_percent asc"
 
     CRON_DDMRP_CHUNKS = 50
 
@@ -737,11 +737,9 @@ class StockBuffer(models.Model):
         all_sellers = self.product_id.seller_ids.filtered(
             lambda r: not r.company_id or r.company_id == self.company_id
         )
-        # specific for variant
-        sellers = all_sellers.filtered(lambda s: s.product_id == self.product_id)
-        if not sellers:
-            # generic no variant
-            sellers = all_sellers.filtered(lambda s: not s.product_id)
+        sellers = all_sellers.filtered(
+            lambda s: s.product_id == self.product_id or not s.product_id
+        )
         if not sellers:
             # fallback to all sellers
             sellers = all_sellers
