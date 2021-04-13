@@ -1181,6 +1181,11 @@ msgid "RM-02"
 msgstr ""
 
 #. module: ddmrp
+#: model:ir.model.fields,field_description:ddmrp.field_stock_buffer_profile__distributed_reschedule_max_proc_time
+msgid "Re-Schedule Procurement Max Proc. Time (minutes)"
+msgstr ""
+
+#. module: ddmrp
 #: model:ir.model.fields,field_description:ddmrp.field_make_procurement_buffer_item__recommended_qty
 msgid "Recommended Qty"
 msgstr ""
@@ -1511,6 +1516,8 @@ msgstr "Unidad de Medida"
 #: model:product.template,uom_name:ddmrp.product_product_fp01_product_template
 #: model:product.template,uom_name:ddmrp.product_product_rm01_product_template
 #: model:product.template,uom_name:ddmrp.product_product_rm02_product_template
+#: model:stock.buffer,product_uom_name:ddmrp.stock_buffer_fp01
+#: model:stock.buffer,product_uom_name:ddmrp.stock_buffer_rm01
 msgid "Units"
 msgstr ""
 
@@ -1619,6 +1626,15 @@ msgid ""
 msgstr ""
 "Cuando use un método mezclado, este es el peso relativo asignado a la parte "
 "pasada de la combinación."
+
+#. module: ddmrp
+#: model:ir.model.fields,help:ddmrp.field_stock_buffer_profile__distributed_reschedule_max_proc_time
+msgid ""
+"When you request procurement from a buffer, their scheduled date is "
+"rescheduled to now + this procurement time (in minutes). Their scheduled "
+"date represents the latest the transfers should be done, and therefore, past "
+"this timestamp, considered late."
+msgstr ""
 
 #. module: ddmrp
 #: model:ir.model.fields,help:ddmrp.field_stock_buffer__auto_procure
