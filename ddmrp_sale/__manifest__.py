@@ -4,14 +4,14 @@
 {
     "name": "DDMRP Sale",
     "summary": "DDMRP integration with Sales app.",
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.1.0",
     "development_status": "Beta",
     "author": "ForgeFlow, Odoo Community Association (OCA)",
     "maintainers": ["LoisRForgeFlow"],
     "website": "https://github.com/OCA/ddmrp",
     "category": "Warehouse Management",
-    "depends": ["ddmrp", "sale_order_line_date"],
-    "data": ["views/stock_buffer_view.xml"],
+    "depends": ["ddmrp", "sale_order_line_date", "ddmrp_exclude_moves_adu_calc"],
+    "data": ["views/stock_buffer_view.xml", "views/sale_order_view.xml"],
     "license": "LGPL-3",
     "installable": True,
 }
