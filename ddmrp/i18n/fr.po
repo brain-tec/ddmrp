@@ -292,6 +292,11 @@ msgid "Configuration Warnings in Stock Buffers"
 msgstr ""
 
 #. module: ddmrp
+#: model_terms:ir.ui.view,arch_db:ddmrp.stock_buffer_view_form
+msgid "Consumption"
+msgstr ""
+
+#. module: ddmrp
 #: model_terms:ir.ui.view,arch_db:ddmrp.stock_buffer_view_tree
 msgid "Create Procurement"
 msgstr "Créer approvisionnement"
@@ -415,6 +420,7 @@ msgstr ""
 
 #. module: ddmrp
 #: model:ir.model.fields.selection,name:ddmrp.selection__stock_buffer_profile__item_type__distributed
+#: model_terms:ir.ui.view,arch_db:ddmrp.stock_buffer_search
 msgid "Distributed"
 msgstr ""
 
@@ -763,6 +769,7 @@ msgstr ""
 
 #. module: ddmrp
 #: model:ir.model.fields.selection,name:ddmrp.selection__stock_buffer_profile__item_type__manufactured
+#: model_terms:ir.ui.view,arch_db:ddmrp.stock_buffer_search
 msgid "Manufactured"
 msgstr ""
 
@@ -1104,6 +1111,7 @@ msgstr ""
 
 #. module: ddmrp
 #: model:ir.model.fields.selection,name:ddmrp.selection__stock_buffer_profile__item_type__purchased
+#: model_terms:ir.ui.view,arch_db:ddmrp.stock_buffer_search
 msgid "Purchased"
 msgstr ""
 
@@ -1415,6 +1423,16 @@ msgid "Stock Move"
 msgstr ""
 
 #. module: ddmrp
+#: model:ir.actions.act_window,name:ddmrp.stock_move_year_consumption_action
+msgid "Stock Move Last Year Consumption"
+msgstr ""
+
+#. module: ddmrp
+#: model_terms:ir.ui.view,arch_db:ddmrp.view_move_consumption_pivot
+msgid "Stock Moves Yearly Consumption"
+msgstr ""
+
+#. module: ddmrp
 #: model:ir.model,name:ddmrp.model_stock_rule
 msgid "Stock Rule"
 msgstr ""
@@ -1518,6 +1536,11 @@ msgstr ""
 #: model:ir.model.fields,help:ddmrp.field_mrp_bom__is_buffered
 #: model:ir.model.fields,help:ddmrp.field_mrp_bom_line__is_buffered
 msgid "True when the product has an DDMRP buffer associated."
+msgstr ""
+
+#. module: ddmrp
+#: model_terms:ir.ui.view,arch_db:ddmrp.stock_buffer_search
+msgid "Type"
 msgstr ""
 
 #. module: ddmrp
