@@ -13,10 +13,12 @@ setuptools.setup(
         'odoo14-addon-ddmrp_chatter',
         'odoo14-addon-ddmrp_coverage_days',
         'odoo14-addon-ddmrp_cron_actions_as_job',
+        'odoo14-addon-ddmrp_exclude_moves_adu_calc',
         'odoo14-addon-ddmrp_history',
         'odoo14-addon-ddmrp_packaging',
         'odoo14-addon-stock_buffer_capacity_limit',
         'odoo14-addon-stock_buffer_route',
+        'odoo14-addon-stock_buffer_sales_analysis',
     ],
     classifiers=[
         'Programming Language :: Python',
