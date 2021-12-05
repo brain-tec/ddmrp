@@ -157,7 +157,7 @@ class StockBuffer(models.Model):
     def _quantity_in_progress(self):
         """Return Quantities that are not yet in virtual stock but should
         be deduced from buffers (example: purchases created from buffers)"""
-        res = dict(self.mapped(lambda x: (x.id, 0.0)))
+        res = {}.fromkeys(self.ids, 0.0)
         polines = self.env["purchase.order.line"].search(
             [
                 ("state", "in", ("draft", "sent", "to approve")),
@@ -518,14 +518,20 @@ class StockBuffer(models.Model):
     def _compute_procure_recommended_qty(self):
         subtract_qty = self.sudo()._quantity_in_progress()
         for rec in self:
+
             procure_recommended_qty = 0.0
-            if rec.net_flow_position < rec.top_of_yellow:
-                qty = rec.top_of_green - rec.net_flow_position - subtract_qty[rec.id]
+            # uses _origin because onchange uses a NewId with the record wrapped
+            if rec._origin and rec.net_flow_position < rec.top_of_yellow:
+                qty = (
+                    rec.top_of_green
+                    - rec.net_flow_position
+                    - subtract_qty[rec._origin.id]
+                )
                 if qty >= 0.0:
                     procure_recommended_qty = qty
-            else:
-                if subtract_qty[rec.id] > 0.0:
-                    procure_recommended_qty -= subtract_qty[rec.id]
+            elif rec._origin:
+                if subtract_qty[rec._origin.id] > 0.0:
+                    procure_recommended_qty -= subtract_qty[rec._origin.id]
 
             adjusted_qty = 0.0
             if procure_recommended_qty > 0.0:
@@ -811,8 +817,15 @@ class StockBuffer(models.Model):
         all_sellers = self.product_id.seller_ids.filtered(
             lambda r: not r.company_id or r.company_id == self.company_id
         )
+        today = fields.Date.context_today(self)
         sellers = all_sellers.filtered(
-            lambda s: s.product_id == self.product_id or not s.product_id
+            lambda s: (
+                (s.product_id == self.product_id or not s.product_id)
+                and (
+                    (s.date_start <= today if s.date_start else True)
+                    and (s.date_end >= today if s.date_end else True)
+                )
+            )
         )
         if not sellers:
             # fallback to all sellers
@@ -1628,6 +1641,11 @@ class StockBuffer(models.Model):
             if auto_commit:
                 self._cr.commit()  # pylint: disable=E8102
         _logger.info("End cron_ddmrp_adu.")
+        return True
+
+    def refresh_buffer(self):
+        self.ensure_one()
+        self.cron_actions(only_nfp=False)
         return True
 
     def cron_actions(self, only_nfp=False):
