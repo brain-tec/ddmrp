@@ -374,6 +374,7 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: ddmrp
+#: model:ir.module.category,name:ddmrp.module_category_ddmrp
 #: model:ir.ui.menu,name:ddmrp.menu_ddmrp_config
 msgid "DDMRP"
 msgstr "DDMRP"
@@ -408,9 +409,19 @@ msgid "DDMRP Demand Chart"
 msgstr "Gráfico de Demanda DDMRP"
 
 #. module: ddmrp
+#: model:ir.model.fields,field_description:ddmrp.field_stock_buffer__ddmrp_chart_execution
+msgid "DDMRP Execution Chart"
+msgstr ""
+
+#. module: ddmrp
 #: model_terms:ir.ui.view,arch_db:ddmrp.res_config_settings_view_form
 msgid "DDMRP History"
 msgstr "Historial DDMRP"
+
+#. module: ddmrp
+#: model:res.groups,name:ddmrp.group_ddmrp_manager
+msgid "DDMRP Manager"
+msgstr ""
 
 #. module: ddmrp
 #: model:ir.model,name:ddmrp.model_ddmrp_run
@@ -510,6 +521,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ddmrp.view_make_procurement_buffer_wizard
 msgid "Execute"
 msgstr "Ejecutar"
+
+#. module: ddmrp
+#: model_terms:ir.ui.view,arch_db:ddmrp.stock_buffer_view_form
+msgid "Execution"
+msgstr ""
 
 #. module: ddmrp
 #: model_terms:ir.ui.view,arch_db:ddmrp.res_config_settings_view_form
@@ -1134,6 +1150,11 @@ msgid "Planned Date"
 msgstr "Fecha Planificada"
 
 #. module: ddmrp
+#: model_terms:ir.ui.view,arch_db:ddmrp.stock_buffer_view_form
+msgid "Planning"
+msgstr ""
+
+#. module: ddmrp
 #: model:ir.model.fields,field_description:ddmrp.field_stock_buffer__planning_priority_level
 msgid "Planning Priority Level"
 msgstr "Nivel Prioridad Planificación"
@@ -1546,6 +1567,11 @@ msgid "Show Coverage Days in Stock Buffers"
 msgstr "Muestra Días de Covertura en Búferes de Stock"
 
 #. module: ddmrp
+#: model:ir.model.fields,field_description:ddmrp.field_stock_buffer__show_execution_chart
+msgid "Show Execution Chart"
+msgstr ""
+
+#. module: ddmrp
 #: model:ir.model.fields,field_description:ddmrp.field_res_config_settings__module_ddmrp_coverage_days
 #: model_terms:ir.ui.view,arch_db:ddmrp.res_config_settings_view_form
 msgid "Shows the current on-hand for stock buffers expressed as coverage days."
@@ -1590,6 +1616,11 @@ msgstr "Estado"
 #: model:ir.model.fields,field_description:ddmrp.field_mrp_production__buffer_id
 msgid "Stock Buffer"
 msgstr "Búfer de Inventario"
+
+#. module: ddmrp
+#: model:res.groups,name:ddmrp.group_stock_buffer_maintainer
+msgid "Stock Buffer Maintainer"
+msgstr ""
 
 #. module: ddmrp
 #: model:ir.model,name:ddmrp.model_stock_buffer_profile
