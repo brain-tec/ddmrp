@@ -188,8 +188,10 @@ class StockBuffer(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id(
             "ddmrp.stock_move_year_consumption_action"
         )
-        locations = self.env["stock.location"].search(
-            [("id", "child_of", [self.location_id.id])]
+        locations = (
+            self.env["stock.location"]
+            .with_context(active_test=False)
+            .search([("id", "child_of", self.location_id.ids)])
         )
         date_to = fields.Date.today()
         # We take last five years, even though they will be initially
@@ -1333,11 +1335,6 @@ class StockBuffer(models.Model):
         )
         return [("id", "in", buffers.ids)]
 
-    @api.onchange("adu_fixed", "adu_calculation_method")
-    def onchange_adu(self):
-        if self.adu_calculation_method.method == "fixed":
-            self._calc_adu()
-
     def _search_open_stock_moves_domain(self):
         self.ensure_one()
         return [
@@ -1420,8 +1417,10 @@ class StockBuffer(models.Model):
         # today is excluded to be sure that is a past day and all moves
         # for that day are done (or at least the expected date is in the past).
         date_from, date_to = self._get_dates_adu_past_demand(horizon)
-        locations = self.env["stock.location"].search(
-            [("id", "child_of", [self.location_id.id])]
+        locations = (
+            self.env["stock.location"]
+            .with_context(active_test=False)
+            .search([("id", "child_of", self.location_id.ids)])
         )
         if self.adu_calculation_method.source_past == "estimates":
             qty = 0.0
@@ -1741,6 +1740,8 @@ class StockBuffer(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         records = super().create(vals_list)
+        if not self.env.context.get("skip_adu_calculation", False):
+            records._calc_adu()
         records._calc_distributed_source_location()
         return records
 
@@ -1920,7 +1921,7 @@ class StockBuffer(models.Model):
     @api.model
     def cron_ddmrp_adu(self, automatic=False):
         """calculate ADU for each DDMRP buffer. Called by cronjob."""
-        auto_commit = not getattr(threading.currentThread(), "testing", False)
+        auto_commit = not getattr(threading.current_thread(), "testing", False)
         _logger.info("Start cron_ddmrp_adu.")
         buffer_ids = self.search([]).ids
         i = 0
@@ -1985,7 +1986,7 @@ class StockBuffer(models.Model):
     def cron_ddmrp(self, automatic=False):
         """Calculate key DDMRP parameters for each buffer.
         Called by cronjob."""
-        auto_commit = not getattr(threading.currentThread(), "testing", False)
+        auto_commit = not getattr(threading.current_thread(), "testing", False)
         _logger.info("Start cron_ddmrp.")
         buffer_ids = self.search([]).ids
         i = 0
