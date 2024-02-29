@@ -1,10 +1,10 @@
-# Copyright 2021 ForgeFlow S.L. (https://www.forgeflow.com)
+# Copyright 2024 ForgeFlow S.L. (https://www.forgeflow.com)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
 {
     "name": "DDMRP Exclude Moves ADU Calc Sales",
     "summary": "DDMRP Exclude Moves ADU Calc integration with Sales app.",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "development_status": "Beta",
     "author": "ForgeFlow, Odoo Community Association (OCA)",
     "maintainers": ["DavidJForgeFlow"],
