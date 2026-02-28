@@ -1,4 +1,7 @@
 
+[![Support the OCA](https://odoo-community.org/readme-banner-image)](https://odoo-community.org/get-involved?utm_source=repo-readme)
+
+# ddmrp
 [![Runboat](https://img.shields.io/badge/runboat-Try%20me-875A7B.png)](https://runboat.odoo-community.org/builds?repo=OCA/ddmrp&target_branch=16.0)
 [![Pre-commit Status](https://github.com/OCA/ddmrp/actions/workflows/pre-commit.yml/badge.svg?branch=16.0)](https://github.com/OCA/ddmrp/actions/workflows/pre-commit.yml?query=branch%3A16.0)
 [![Build Status](https://github.com/OCA/ddmrp/actions/workflows/test.yml/badge.svg?branch=16.0)](https://github.com/OCA/ddmrp/actions/workflows/test.yml?query=branch%3A16.0)
@@ -7,9 +10,7 @@
 
 <!-- /!\ do not modify above this line -->
 
-# ddmrp
-
-TODO: add repo description.
+DDMRP in Odoo.
 
 <!-- /!\ do not modify below this line -->
 
@@ -21,8 +22,8 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[ddmrp](ddmrp/) | 16.0.1.12.2 | <a href='https://github.com/JordiBForgeFlow'><img src='https://github.com/JordiBForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='JordiBForgeFlow'/></a> <a href='https://github.com/LoisRForgeFlow'><img src='https://github.com/LoisRForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='LoisRForgeFlow'/></a> <a href='https://github.com/ChrisOForgeFlow'><img src='https://github.com/ChrisOForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='ChrisOForgeFlow'/></a> | Demand Driven Material Requirements Planning
-[ddmrp_adjustment](ddmrp_adjustment/) | 16.0.1.5.2 | <a href='https://github.com/JordiBForgeFlow'><img src='https://github.com/JordiBForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='JordiBForgeFlow'/></a> <a href='https://github.com/LoisRForgeFlow'><img src='https://github.com/LoisRForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='LoisRForgeFlow'/></a> | Allow to apply factor adjustments to buffers.
+[ddmrp](ddmrp/) | 16.0.1.13.0 | <a href='https://github.com/JordiBForgeFlow'><img src='https://github.com/JordiBForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='JordiBForgeFlow'/></a> <a href='https://github.com/LoisRForgeFlow'><img src='https://github.com/LoisRForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='LoisRForgeFlow'/></a> <a href='https://github.com/ChrisOForgeFlow'><img src='https://github.com/ChrisOForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='ChrisOForgeFlow'/></a> | Demand Driven Material Requirements Planning
+[ddmrp_adjustment](ddmrp_adjustment/) | 16.0.1.7.0 | <a href='https://github.com/JordiBForgeFlow'><img src='https://github.com/JordiBForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='JordiBForgeFlow'/></a> <a href='https://github.com/LoisRForgeFlow'><img src='https://github.com/LoisRForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='LoisRForgeFlow'/></a> | Allow to apply factor adjustments to buffers.
 [ddmrp_chatter](ddmrp_chatter/) | 16.0.1.1.1 |  | Adds chatter and activities to stock buffers.
 [ddmrp_cron_actions_as_job](ddmrp_cron_actions_as_job/) | 16.0.1.0.1 |  | Run DDMRP Buffer Calculation as jobs
 [ddmrp_exclude_moves_adu_calc](ddmrp_exclude_moves_adu_calc/) | 16.0.1.1.0 | <a href='https://github.com/JordiBForgeFlow'><img src='https://github.com/JordiBForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='JordiBForgeFlow'/></a> <a href='https://github.com/LoisRForgeFlow'><img src='https://github.com/LoisRForgeFlow.png' width='32' height='32' style='border-radius:50%;' alt='LoisRForgeFlow'/></a> | Define additional rules to exclude certain moves from ADU calculation
